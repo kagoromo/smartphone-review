@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root "reviews#index"
 
   resources :reviews
-  devise_for :users
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/callbacks"
+    }, skip: :passwords
 end

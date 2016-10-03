@@ -29,12 +29,12 @@ en:
   develop_by: "Developed by Miracle+6"
   welcome: "Welcome to Smartphome Review"
 
-  login: "Log in"
-  logout: "Log out"
-  sign_up: "Sign up"
+  login: "Sign In"
+  logout: "Sign Out"
+  sign_up: "Sign Up"
   sign_up_now: "Sign Up Now!"
   forgot_password: "Forgot your password?"
-  characters_minimum: "(%{number} characters_minimum)"
+  characters_minimum: "(%{number} characters minimum)"
 
   edit_profile: "Edit Profile"
   edit: "Edit %{name}"
@@ -43,5 +43,5 @@ en:
   current_password: "(we need your current password to confirm your changes)"
   back: "Back"
 
-  account: "Acount"
+  account: "Account"
   setting: "Setting"
