@@ -1,0 +1,38 @@
+<div id="main-content">
+    <div class="hastable">
+        <div class="product-list-paging"><b>Total: <%= @total %></b></div>
+        <table id="sort-table">
+            <thead>
+                <tr>
+                    <td align="center" style="width: 50px;"><b>ID</b></td>
+                    <td align="center"><b>Title</b></td>
+                    <td align="center" style="width: 300px;"><b>Detail</b></td>
+                    <td align="center" style="width: 230px;"><b>Description</b></td>
+                    <td align="center" style="width: 80px;"><b>Status</b></td>
+                    <td align="center" style="width: 120px;"><b>Note</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <% if @reviews == nil %>
+                    <tr>
+                        <td colspan="6" align="center">
+                            <div class="list-item">You don't have any review</div>
+                        </td>
+                    </tr>
+                <% else %>
+                    <% @reviews.each do |review| %>
+                    <tr>
+                        <td align="center" style="width: 50px;"><b><%= review.id %></b></td>
+                        <td align="center"><b><%= review.title %></b></td>
+                        <td align="center" style="width: 300px;"><b><%= link_to "View", review_path(review) %></b></td>
+                        <td align="center" style="width: 230px;"><b></b></td>
+                        <td align="center" style="width: 80px;"></td>
+                        <td align="center" style="width: 120px;"><b></b></td>
+                    </tr>
+                    <% end %>
+                <% end %>
+
+            </tbody>
+        </table>
+    </div>
+</div>

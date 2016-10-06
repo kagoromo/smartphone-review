@@ -7,6 +7,27 @@
       </div>
       <p><%= @review.content.html_safe %></p>
     </div>
+    <div>
+      <% if @review.comments.any? %>
+        <div class="comment-box">
+          <% @review.comments.each do |comment| %>
+            <div class="comment-list">
+              <b><%= comment.user.email %></b>
+              <%= comment.created_at.strftime('%H:%M (%d-%m-%Y)') %>
+              <div>
+                <%= comment.content %>
+                <% if current_user == comment.user %>
+                  <%= link_to "delete", comment, method: :delete %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div>
+      <%= render 'comments/form', review: @review %>
+    </div>
     <% if @review.user == current_user %>
       <br />
       <div class="center">
