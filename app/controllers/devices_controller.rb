@@ -42,9 +42,9 @@ class DevicesController < ApplicationController
   def destroy
     @device = Device.find_by id: params[:id]
     if @device.destroy
-
+      flash[:success] = "Device has been successfully deleted."
     else
-
+      flash.now[:danger] = "Failed to delete device."
     end
 
     redirect_to devices_path
