@@ -12,6 +12,7 @@
           <h3><%= link_to review.title.html_safe, review_path(review) %></h3>
         </div>
         <p><%= review.content.html_safe %></p>
+        <p><span class="glyphicon glyphicon-eye-open"></span> <%= review.impressionist_count filter: :ip_address %></p>
       </div>
       <% if review != @reviews.last %>
         <hr />

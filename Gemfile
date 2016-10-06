@@ -15,6 +15,7 @@ gem "paperclip"
 gem "devise"
 gem "bootstrap-sass", "~> 3.3.6"
 gem "omniauth-facebook"
+gem "impressionist"
 
 group :development, :test do
   gem "byebug", platform: :mri
