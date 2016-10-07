@@ -21,8 +21,11 @@
         <%= f.submit t(:login), class: "btn btn-primary" %>
       </div>
     <% end %>
-    <br>
+    <div class="center">
+      <hr>
+      Or
+    </div>
     <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path,
-      class: "btn btn-default col-md-4 pull-left" %>
+      class: "btn btn-default col-md-4 col-md-offset-4" %>
   </div>
 </div>

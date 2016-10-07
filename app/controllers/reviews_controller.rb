@@ -8,8 +8,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find_by_id(params[:id])
-    impressionist(@review)
+    @review = Review.find_by_id params[:id]
+    impressionist @review
   end
 
   def new
@@ -56,11 +56,11 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit :title, :content
+    params.require(:review).permit :title, :content, :device_id
   end
 
   def correct_user
-    @review = current_user.reviews.find_by(id: params[:id])
+    @review = current_user.reviews.find_by id: params[:id]
     if @review.nil?
       flash[:danger] = "You are not authorized to perform this action."
       redirect_to root_url
