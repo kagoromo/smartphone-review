@@ -16,7 +16,7 @@
       <%= f.label :device_id %>
     </div>
     <div>
-      <%= f.text_field :device_id %>
+      <%= collection_select :review, :device_id, Device.all, :id, :name, prompt: true %>
     </div>
     <div>
       <%= f.label :content %>

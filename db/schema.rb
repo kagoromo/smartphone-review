@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 20161006172214) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "devices", force: :cascade do |t|
+    t.string   "name"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type"
     t.integer  "impressionable_id"
@@ -64,20 +71,13 @@ ActiveRecord::Schema.define(version: 20161006172214) do
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
-  create_table "devices", force: :cascade do |t|
-    t.string   "name"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id"
     t.text     "title"
     t.text     "content"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "counter_cache", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer  "device_id"
     t.index ["device_id"], name: "index_reviews_on_device_id"
   end
