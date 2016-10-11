@@ -6,6 +6,10 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.order(sort_column + " " + sort_direction).
       page(params[:page]).per 10
+    @search = Review.search do
+      fulltext params[:search]
+    end
+    @reviews = @search.results
   end
 
   def show

@@ -7,4 +7,8 @@ class Review < ApplicationRecord
 
   is_impressionable counter_cache: true, column_name: :counter_cache,
     unique: :session_hash
+    
+  searchable do
+    text :title
+  end
 end

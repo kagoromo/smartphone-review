@@ -6,12 +6,24 @@
       <h1>All Reviews</h1>
       <%= link_to "New Review", new_review_path, class: "btn btn-primary" if current_user %>
     </div>
-
+   
     <div class="row">
       <div class="pull-right">
-        Order by: <%= link_to "Submitted", sort: "created_at", direction: "desc",
-          remote: true %> | <%= link_to "View Count", sort: "counter_cache",
-          direction: "desc", remote: true %>
+        <div class="search-box">
+          <%= form_tag reviews_path, :method => 'get', :id => "reviews_search" do %>
+            <div class="col-md-8">
+              <%= text_field_tag :search, params[:search] %>
+            </div>
+            <div class="col-md-4">
+              <%= submit_tag "Search", :title => nil %>
+            </div>
+          <% end %>
+        </div>
+        <div class="filter">
+          Order by: <%= link_to "Submitted", sort: "created_at", direction: "desc",
+            remote: true %> | <%= link_to "View Count", sort: "counter_cache",
+            direction: "desc", remote: true %>
+        </div>
       </div>
     </div>
 
