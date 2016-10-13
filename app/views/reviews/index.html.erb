@@ -1,0 +1,26 @@
+<% provide :title, "All Reviews" %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="row center">
+      <h1>All Reviews</h1>
+      <%= link_to "New Review", new_review_path, class: "btn btn-primary" if current_user %>
+    </div>
+
+    <div class="row">
+      <div class="pull-right">
+        Order by: <%= link_to "Submitted", sort: "created_at", direction: "desc",
+          remote: true %> | <%= link_to "View Count", sort: "counter_cache",
+          direction: "desc", remote: true %>
+      </div>
+    </div>
+
+    <div class="row" id="reviews">
+      <%= render @reviews %>
+    </div>
+
+    <div class="row center">
+      <%= paginate @reviews, window: 3, remote: true %>
+    </div>
+  </div>
+</div>

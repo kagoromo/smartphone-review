@@ -1,0 +1,59 @@
+<% provide :title, "Review" %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="container">
+      <div class="center">
+        <h3><%= @review.title.html_safe %></h3>
+        <i>Review for <%= link_to @review.device.name, @review.device %></i>
+      </div>
+      <div class="content"><%= @review.content.html_safe %></div>
+    </div>
+
+    <hr>
+    <div>
+      <div class="comment-title">
+        <b>Comments</b>
+      </div
+      >
+      <div class="comment-box">
+        <% if @review.comments.any? %>
+          <% @review.comments.each do |comment| %>
+            <div class="comment-list">
+              <div><%= comment.content %></div>
+              <b><%= comment.user.email %></b>
+              <%= comment.created_at.strftime(' - %d-%m-%Y %H:%M - ') %>
+              <% if current_user == comment.user %>
+                <%= link_to "delete", comment, method: :delete,
+                  data: {confirm: "Are you sure?"},
+                  class: "btn btn-xs btn-danger" %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <div class="row">
+            <%= render 'comments/form', review: @review %>
+          </div>
+        <% else%>
+          <div class="center">
+            Please <%= link_to "Sign In", new_user_session_path %> to leave a comment!
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <% if @review.user == current_user or current_user.admin? %>
+      <hr>
+      <div class="center">
+        <%= link_to "Edit Review", edit_review_path(@review), class: "btn btn-success" %>
+        <%= link_to "Delete Review", review_path(@review), method: :delete,
+          data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      </div>
+    <% end %>
+    <div class="center">
+      <br />
+      <%= link_to "Back to All Reviews", reviews_path, class: "btn btn-default" %>
+    </div>
+  </div>
+</div>

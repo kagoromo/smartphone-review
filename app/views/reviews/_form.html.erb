@@ -1,0 +1,38 @@
+<%= form_for @review do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+        <% @review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :device_id %>
+    <%= f.collection_select :device_id, Device.all, :id, :name,
+      {prompt: true}, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.cktext_area :content, rows: 10, class: "ckeditor" %>
+  </div>
+
+  <div>
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+
+  <br>
+  <div class="center">
+    <%= link_to "Back to All Reviews", reviews_path, class: "btn btn-default" %>
+  </div>
+<% end %>

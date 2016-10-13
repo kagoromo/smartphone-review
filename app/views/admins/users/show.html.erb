@@ -1,0 +1,8 @@
+<% provide :title, "User" %>
+
+<p>
+  <%= @user.email %>
+</p>
+
+<%= link_to 'Edit', edit_admins_user_path(@user) %> |
+<%= link_to 'Back', admins_users_path %>

@@ -1,0 +1,10 @@
+<div class="row review-list">
+  <div class="center">
+    <h3><%= link_to review.title.html_safe, review_path(review) %></h3>
+  </div>
+  <p><%= review.content.html_safe %></p>
+  <div class="pull-right">
+    <span class="glyphicon glyphicon-eye-open"></span> <%= review.
+      impressionist_count filter: :session_hash %>
+  </div>
+</div>

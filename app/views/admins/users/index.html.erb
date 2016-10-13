@@ -1,0 +1,26 @@
+<% provide :title, "All Users" %>
+
+<div class="center">
+  <h1>Users</h1>
+  <%= link_to "New User", new_admins_user_path, class: "btn btn-primary"%>
+  <hr />
+</div>
+
+<div class="panel panel-default">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-md-9">Email</th>
+        <th class="col-md-3 center">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody id="users">
+      <%= render @users %>
+    </tbody>
+  </table>
+
+  <div class="panel-footer center">
+    <%= paginate @users, window: 3, remote: true %>
+  </div>
+</div>

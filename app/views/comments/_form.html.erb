@@ -1,0 +1,9 @@
+<%= form_for @comment do |f| %>
+  <%= f.hidden_field :review_id, value: review.id %>
+
+  <%= f.text_field :content, rows: 1, placeholder: 'Comment on this review...',
+    class: "form-control" %>
+  <div class="input-group pull-right">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

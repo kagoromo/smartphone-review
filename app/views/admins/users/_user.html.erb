@@ -1,0 +1,11 @@
+<tr>
+  <td><%= link_to user.email, [:admins, user] %></td>
+  <% unless current_user == user %>
+    <td>
+      <%= link_to "Edit", edit_admins_user_path(user),
+    class: "btn btn-success col-md-4 col-md-offset-1" %>
+      <%= link_to "Delete", [:admins, user], method: :delete,
+    data: { confirm: "Are you sure?" },
+    class: "btn btn-danger col-md-4 col-md-offset-2" %>
+  <% end %>
+</tr>
