@@ -1,0 +1,3 @@
+$('div#reviews').html('<%= escape_javascript render(@reviews) %>');
+
+$('.pagination').html('<%= escape_javascript(paginate(@reviews, window: 3, remote: true).to_s) %>');

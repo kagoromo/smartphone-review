@@ -1,38 +1,31 @@
-<div id="main-content">
-    <div class="hastable">
-        <div class="product-list-paging"><b>Total: <%= @total %></b></div>
-        <table id="sort-table">
-            <thead>
-                <tr>
-                    <td align="center" style="width: 50px;"><b>ID</b></td>
-                    <td align="center"><b>Title</b></td>
-                    <td align="center" style="width: 300px;"><b>Detail</b></td>
-                    <td align="center" style="width: 230px;"><b>Description</b></td>
-                    <td align="center" style="width: 80px;"><b>Status</b></td>
-                    <td align="center" style="width: 120px;"><b>Note</b></td>
-                </tr>
-            </thead>
-            <tbody>
-                <% if @reviews == nil %>
-                    <tr>
-                        <td colspan="6" align="center">
-                            <div class="list-item">You don't have any review</div>
-                        </td>
-                    </tr>
-                <% else %>
-                    <% @reviews.each do |review| %>
-                    <tr>
-                        <td align="center" style="width: 50px;"><b><%= review.id %></b></td>
-                        <td align="center"><b><%= review.title %></b></td>
-                        <td align="center" style="width: 300px;"><b><%= link_to "View", review_path(review) %></b></td>
-                        <td align="center" style="width: 230px;"><b></b></td>
-                        <td align="center" style="width: 80px;"></td>
-                        <td align="center" style="width: 120px;"><b></b></td>
-                    </tr>
-                    <% end %>
-                <% end %>
+<% provide :title, "My Reviews" %>
 
-            </tbody>
-        </table>
-    </div>
+<div class="center">
+  <h1>My Reviews</h1>
+    <%= link_to "New Review", new_review_path, class: "btn btn-primary" if current_user %>
+  <hr />
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    You have <%= pluralize(@total, "review") %> in total.
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-md-3">Title</td>
+        <th class="col-md-6">Summary</td>
+        <th class="col-md-3 center">Actions</td>
+      </tr>
+    </thead>
+
+    <tbody id="reviews">
+      <%= render partial: "users/review", collection: @reviews %>
+    </tbody>
+  </table>
+
+  <div class="panel-footer center">
+    <%= paginate @reviews, window: 3, remote: true %>
+  </div>
 </div>

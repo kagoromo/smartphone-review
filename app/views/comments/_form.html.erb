@@ -1,14 +1,9 @@
-<div>
-  <%= form_for(@comment ||= Comment.new) do |f| %>
-    <div class="row comment_form">
-      <div class="col-md-8">
-        <%= f.hidden_field :review_id, value: review.id %>
-        <div class="center">
-          <b>Comment</b>
-        </div>
-        <%= f.text_field :content, rows: 1, placeholder: 'Write something...' %>
-        <%= f.submit "Submit", class: "btn btn-success" %>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= form_for @comment do |f| %>
+  <%= f.hidden_field :review_id, value: review.id %>
+
+  <%= f.text_field :content, rows: 1, placeholder: 'Comment on this review...',
+    class: "form-control" %>
+  <div class="input-group pull-right">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

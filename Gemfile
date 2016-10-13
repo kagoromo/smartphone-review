@@ -16,12 +16,14 @@ gem "devise"
 gem "bootstrap-sass", "~> 3.3.6"
 gem "omniauth-facebook"
 gem "impressionist"
+gem "kaminari-bootstrap"
 
 group :development, :test do
   gem "byebug", platform: :mri
 end
 
 group :development do
+  gem "faker"
   gem "web-console"
   gem "listen", "~> 3.0.5"
   gem "spring"

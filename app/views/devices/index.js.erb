@@ -1,0 +1,3 @@
+$('div#devices').html('<%= escape_javascript render(@devices) %>');
+
+$('.pagination').html('<%= escape_javascript(paginate(@devices, window: 3, remote: true).to_s) %>');

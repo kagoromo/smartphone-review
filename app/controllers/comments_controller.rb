@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
 
   def create
     @comment = current_user.comments.build(comment_params)
@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Commented!"
       redirect_to :back
     else
+      flash[:danger] = "Can not comment"
       redirect_to :back
     end
   end

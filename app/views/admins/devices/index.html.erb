@@ -1,0 +1,27 @@
+<% provide :title, "All Devices" %>
+
+<div class="center">
+  <h1>Devices</h1>
+  <%= link_to "New device", new_admins_device_path, class: "btn btn-primary"%>
+  <hr />
+</div>
+
+<div class="panel panel-default">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-md-3">Name</th>
+        <th class="col-md-6">Content</th>
+        <th class="col-md-3 center">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody id="devices">
+      <%= render @devices %>
+    </tbody>
+  </table>
+
+  <div class="panel-footer center">
+    <%= paginate @devices, window: 3, remote: true %>
+  </div>
+</div>

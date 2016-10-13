@@ -1,0 +1,15 @@
+<% provide :title, "Device" %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="container">
+      <div class="center">
+        <h3><%= @device.name.html_safe %></h3>
+      </div>
+      <p><%= @device.content.html_safe %></p>
+    </div>
+    <div class="center">
+      <hr />
+      <%= link_to "Back to All Devices", admins_devices_path, class: "btn btn-default" %>
+    </div>
+  </div>
+</div>

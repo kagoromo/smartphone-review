@@ -13,6 +13,7 @@ class User < ApplicationRecord
     def from_omniauth auth
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.provider = auth.provider
+        user.uid = auth.uid
         user.email = auth.info.email
       end
     end
@@ -35,5 +36,13 @@ class User < ApplicationRecord
 
   def update_with_password params, *options
     encrypted_password.blank? ? update_attributes(params, *options) : super
+  end
+
+  def link_with_facebook provider, uid = nil
+    update_attributes provider: provider, uid: uid
+  end
+
+  def unlink_from_facebook
+    update_attributes provider: nil, uid: nil
   end
 end

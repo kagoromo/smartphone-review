@@ -1,0 +1,11 @@
+<tr>
+  <td><%= link_to review.title, review %></td>
+  <td></td>
+  <td>
+    <%= link_to "Edit", edit_review_path(review),
+      class: "btn btn-success col-md-4 col-md-offset-1" %>
+    <%= link_to "Delete", review, method: :delete,
+      data: { confirm: "Are you sure?" },
+      class: "btn btn-danger col-md-4 col-md-offset-2" %>
+  </td>
+</tr>

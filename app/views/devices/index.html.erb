@@ -1,0 +1,17 @@
+<% provide :title, "All Devices" %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="row center">
+      <h1>Devices</h1>
+    </div>
+
+    <div class="row" id="devices">
+      <%= render @devices %>
+    </div>
+
+    <div class="row center">
+      <%= paginate @devices, window: 3, remote: true %>
+    </div>
+  </div>
+</div>

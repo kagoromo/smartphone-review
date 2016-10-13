@@ -14,6 +14,21 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require ckeditor/init
+//= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  setTimeout(function() {
+    $('.alert').fadeOut('normal');
+  }, 8000);
+});
+
+jQuery(document).on('turbolinks:load', function() {
+    $('textarea.ckeditor').each(function() {
+        if($(this).css('visibility') != 'hidden')
+            CKEDITOR.replace(this);
+    });
+    if(Turbolinks)
+        Turbolinks.clearCache();
+});
