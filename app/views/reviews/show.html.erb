@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <% if @review.user == current_user %>
+    <% if @review.user == current_user or current_user.admin? %>
       <hr>
       <div class="center">
         <%= link_to "Edit Review", edit_review_path(@review), class: "btn btn-success" %>

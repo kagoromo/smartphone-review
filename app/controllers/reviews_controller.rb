@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.order(sort_column + " " + sort_direction).
-      page(params[:page]).per 10
+        page(params[:page]).per 10
   end
 
   def show
@@ -62,10 +62,14 @@ class ReviewsController < ApplicationController
   end
 
   def correct_user
-    @review = current_user.reviews.find_by id: params[:id]
-    if @review.nil?
-      flash[:danger] = "You are not authorized to perform this action."
-      redirect_to root_url
+    if current_user.admin?
+      @review = Review.find_by_id params[:id]
+    else
+      @review = current_user.reviews.find_by id: params[:id]
+      if @review.nil?
+        flash[:danger] = "You are not authorized to perform this action."
+        redirect_to root_url
+      end
     end
   end
 
@@ -74,6 +78,6 @@ class ReviewsController < ApplicationController
   end
 
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "desc"
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 end
