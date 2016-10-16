@@ -14,6 +14,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 .content {
+  margin-top: 20px;
   min-height: 500px;
 }
 
@@ -443,4 +444,10 @@ select {
 .review-list {
   margin-top: 15px;
   border-top: 1px solid #e1e1e1;
+}
+.acolumn {
+  width: 680px;
+  float: left;
+  margin-right: 20px;
+  margin-top: 15px;
 }
