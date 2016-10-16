@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
   def update
     if @review.update_attributes review_params
       flash[:success] = "The review has been successfully updated."
-      redirect_to reviews_path
+      redirect_to review_path
     else
       flash.now[:danger] = "Failed to edit the review."
       render "edit"

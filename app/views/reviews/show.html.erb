@@ -1,7 +1,7 @@
 <% provide :title, "Review" %>
 <div class="row">
   <div class="col-md-12">
-    <div class="container">
+    <div class="container review-content">
       <div class="center">
         <h3><%= @review.title.html_safe %></h3>
         <i>Review for <%= link_to @review.device.name, @review.device %></i>

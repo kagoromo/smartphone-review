@@ -6,8 +6,8 @@
       <h1>All Reviews</h1>
       <%= link_to "New Review", new_review_path, class: "btn btn-primary" if current_user %>
     </div>
-    <div class="row">
-      <div class="pull-right">
+    <div class="row pull-right col-md-4">
+      <br>
         <div class="search-box">
           <%= search_form_for @search, remote: true do |f| %>
             <div class="field">
@@ -21,15 +21,14 @@
             remote: true %> | <%= link_to "View Count", sort: "counter_cache",
             direction: "desc", remote: true %>
         </div>
-      </div>
     </div>
 
-    <div class="row" id="reviews">
+    <div class="row pull-left col-md-8" id="reviews">
       <%= render @reviews %>
     </div>
 
-    <div class="row center">
-      <%= paginate @reviews, window: 3, remote: true %>
-    </div>
+  </div>
+  <div class="row center">
+    <%= paginate @reviews, window: 3, remote: true %>
   </div>
 </div>

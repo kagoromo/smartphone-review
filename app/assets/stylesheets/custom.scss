@@ -4,6 +4,8 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$white: #F2F1F1;
+$shadow-color: #4A6EA9;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -443,4 +445,14 @@ select {
 .review-list {
   margin-top: 15px;
   border-top: 1px solid #e1e1e1;
+  background-color: $white;
+  -webkit-box-shadow: 1px 1px 5px 0 $shadow-color;
+  -moz-box-shadow: 1px 1px 5px 0 $shadow-color;
+  box-shadow: 1px 1px 5px 0 $shadow-color;
+  padding: 10px;
+}
+
+.review-content {
+  background-color: $white;
+  border-radius: 10px;
 }
