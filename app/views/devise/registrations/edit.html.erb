@@ -29,7 +29,7 @@
         <% if f.object.provider.blank? %>
           <a href="auth/facebook" class="auth_provider">
             <%= image_tag "authbuttons/facebook_64.png", size: "64x64",
-            alt: "Link a Facebook account" %>Link a Facebook account</a>
+            alt: "Link a Facebook account" %>&emsp;&emsp;Link a Facebook account</a>
         <% else %>
           <%= link_to unlink_facebook_path(@user), method: :post do %>
             <%= image_tag "authbuttons/facebook_64.png", size: "64x64",

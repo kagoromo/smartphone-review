@@ -1,3 +1,9 @@
 $('div#devices').html('<%= escape_javascript render(@devices) %>');
 
 $('.pagination').html('<%= escape_javascript(paginate(@devices, window: 3, remote: true).to_s) %>');
+
+$('.page>a,.first>a,.last>a,.next>a,.prev>a').click(function () {
+  $('html, body').animate({
+    scrollTop: $(".scrolltop-anchor").offset().top - 110
+  }, 300);
+});
