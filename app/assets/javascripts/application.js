@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-sprockets
@@ -66,3 +67,18 @@ $(document).on('turbolinks:load', function() {
     }
   });
 });
+
+$(document).on('turbolinks:load', function() {
+  $('#search').autocomplete ({
+    source: "/search_suggestions",
+    minLength: 2
+  })
+});
+
+$.ui.autocomplete.prototype._renderItem = function (ul, item) {
+  item.label = item.label.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" +
+     $.ui.autocomplete.escapeRegex(this.term) +
+     ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>");
+  return $("<li></li>").data("item.autocomplete", item).
+    append("<a>" + item.label + "</a>").appendTo(ul);
+};

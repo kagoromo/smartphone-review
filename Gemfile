@@ -18,6 +18,10 @@ gem "omniauth-facebook"
 gem "impressionist"
 gem "kaminari-bootstrap"
 gem "ransack"
+gem "jquery-ui-rails"
+gem "htmlentities"
+gem "redis"
+gem "sidekiq"
 
 group :development, :test do
   gem "byebug", platform: :mri
