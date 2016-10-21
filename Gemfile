@@ -22,6 +22,7 @@ gem "jquery-ui-rails"
 gem "htmlentities"
 gem "redis"
 gem "sidekiq"
+gem "sidekiq-throttled"
 
 group :development, :test do
   gem "byebug", platform: :mri

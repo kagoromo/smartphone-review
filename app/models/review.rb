@@ -31,9 +31,8 @@ class Review < ApplicationRecord
 
   scope :with_in_30_days, ->{ where('created_at > ?', 30.days.ago) }
 
-  after_commit :index_text_for_search_suggestion
+  after_create :index_text_for_search_suggestion
 
-  private
   def index_text_for_search_suggestion
     SearchSuggestionWorker.perform_async SearchSuggestionWorker::INDEX_REVIEW,
       self.id

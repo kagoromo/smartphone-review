@@ -197,6 +197,8 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (~> 3.2, >= 3.2.1)
+    sidekiq-throttled (0.6.6)
+      sidekiq
     spring (2.0.0)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -256,6 +258,7 @@ DEPENDENCIES
   redis
   sass-rails (~> 5.0)
   sidekiq
+  sidekiq-throttled
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
