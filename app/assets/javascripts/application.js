@@ -36,7 +36,7 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
-jQuery(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
   $('textarea.ckeditor').each(function() {
     if($(this).css('visibility') != 'hidden')
       CKEDITOR.replace(this);
@@ -52,4 +52,17 @@ $(window).on("scroll", function() {
   } else {
       $(".go-top").fadeIn();
   }
+});
+
+$(document).on('turbolinks:load', function() {
+  $('#sidebar').affix({
+    offset: {
+      top: function () {
+        return (this.top = $('.carousel').outerHeight(true))
+      },
+      bottom: function () {
+        return (this.bottom = $('footer').outerHeight(true))
+      }
+    }
+  });
 });

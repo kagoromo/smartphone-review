@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row center">
         <div class="col-md-8 col-md-offset-2">
-          <%= carousel_for @hot_reviews %>
+          <%= carousel_for @carousel_reviews %>
         </div>
       </div>
     </div>
@@ -36,11 +36,13 @@
         </div>
 
         <div class="col-md-4">
-          <%= render "search_form" %>
+          <div id="sidebar">
+            <%= render "search_form" %>
 
-          <div class="hot-review">
-            <h3 class="center">Hot Reviews of the Month</h3>
-            <%= render partial: "hot_review", collection: @hot_reviews %>
+            <div class="hot-review">
+              <h3 class="center">Hot Reviews of the Month</h3>
+              <%= render partial: "hot_review", collection: @hot_reviews %>
+            </div>
           </div>
         </div>
       </div>

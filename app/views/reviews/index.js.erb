@@ -4,6 +4,6 @@ $('.pagination').html('<%= escape_javascript(paginate(@reviews, window: 3, remot
 
 $('.page>a,.first>a,.last>a,.next>a,.prev>a').click(function () {
   $('html, body').animate({
-    scrollTop: $(".scrolltop-anchor").offset().top - 110
+    scrollTop: $(".scrolltop-anchor").offset().top - 130
   }, 300);
 });

@@ -1,5 +1,5 @@
 <tr>
-  <td><%= user.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+  <td><%= user.created_at.strftime("%d/%m/%Y %H:%M %Z") %></td>
   <td><%= link_to user.name, [:admins, user] %></td>
   <td><%= link_to user.email, [:admins, user] %></td>
   <% unless current_user == user %>

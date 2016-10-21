@@ -1,5 +1,5 @@
 <tr>
-  <td><%= review.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+  <td><%= review.created_at.strftime("%d/%m/%Y %H:%M %Z") %></td>
   <td><%= link_to review.title, review %></td>
   <td><%= review.summary.truncate(170, separator: " ") %></td>
   <td><span class="glyphicon glyphicon-eye-open"></span> <%= review.impressionist_count filter: :session_hash %></td>

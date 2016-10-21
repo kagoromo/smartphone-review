@@ -9,5 +9,9 @@ class UsersController < ApplicationController
   private
   def load_user
     @user = User.find_by id: params[:id]
+    unless current_user == @user
+      flash[:danger] = "You are not authorized to see this page."
+      redirect_back fallback_location: root_path
+    end
   end
 end

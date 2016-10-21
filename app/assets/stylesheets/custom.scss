@@ -758,6 +758,11 @@ select {
 .carousel {
   min-width: 400px;
   min-height: 200px;
+  ol > li {
+    box-shadow: #000 0 0 20px;
+    margin: -10px 5px !important;
+    padding: 8px;
+  }
 }
 
 .carousel-inner > .item > img {
@@ -775,5 +780,27 @@ select {
     color: #fff;
     text-decoration: none;
     text-shadow: #000 0 0 20px !important;
+  }
+}
+
+.affix-top,.affix{
+ position: static;
+}
+
+@media (min-width: 979px) {
+  #sidebar.affix-top {
+    position: static;
+    width: 350px;
+  }
+
+  #sidebar.affix {
+    position: fixed;
+    top: 84px;
+    width: 350px;
+  }
+
+  #sidebar.affix-bottom {
+    position: absolute;
+    width: 350px;
   }
 }

@@ -17,7 +17,6 @@ class Admins::ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.build review_params
-    @review.approved!
     if @review.save
       flash[:success] = "The review has been successfully created."
       redirect_to admins_reviews_path
