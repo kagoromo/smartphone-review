@@ -3,7 +3,9 @@ class Admins::DevicesController < ApplicationController
   before_action :set_device, except: [:index, :new, :create]
 
   def index
-    @devices = Device.all.page(params[:page]).per 10
+    @search = Device.ransack(params[:q])
+    @devices = @search.result.order(sort_column + " " + sort_direction).
+      page(params[:page]).per 10
   end
 
   def show
@@ -56,5 +58,13 @@ class Admins::DevicesController < ApplicationController
 
   def device_params
     params.require(:device).permit :name, :content
+  end
+  
+  def sort_column
+    Review.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "desc"
   end
 end

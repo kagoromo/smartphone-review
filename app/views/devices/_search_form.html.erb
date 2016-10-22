@@ -1,7 +1,7 @@
 <div class="search-box">
-  <%= search_form_for @search, url: admins_reviews_path, remote: true do |f| %>
+  <%= search_form_for @search, remote: true do |f| %>
     <div class="input-group">
-      <%= f.text_field :title_or_content_cont, class: "form-control", placeholder: "Search for..." %>
+      <%= f.text_field :name_or_content_cont, class: "form-control", placeholder: "Search for..." %>
       <span class="input-group-btn">
         <%= f.submit "Go!", class: "btn btn-default" %>
       </span>

@@ -3,7 +3,9 @@ class Admins::ReviewsController < ApplicationController
   before_action :load_review, except: [:index, :new, :create]
 
   def index
-    @reviews = Review.order(sort_column + " " + sort_direction).page(params[:page]).per 10
+    @search = Review.ransack(params[:q])
+    @reviews = @search.result.order(sort_column + " " + sort_direction).
+      page(params[:page]).per 10
   end
 
   def show
