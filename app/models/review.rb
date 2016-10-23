@@ -30,11 +30,4 @@ class Review < ApplicationRecord
   enum status: [:pending, :approved, :rejected]
 
   scope :with_in_30_days, ->{ where('created_at > ?', 30.days.ago) }
-
-  after_create :index_text_for_search_suggestion
-
-  def index_text_for_search_suggestion
-    SearchSuggestionWorker.perform_async SearchSuggestionWorker::INDEX_REVIEW,
-      self.id
-  end
 end

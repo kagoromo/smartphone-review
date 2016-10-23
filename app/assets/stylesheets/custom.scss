@@ -763,8 +763,8 @@ select {
   min-height: 200px;
   ol > li {
     box-shadow: #000 0 0 20px;
-    margin: -10px 5px !important;
-    padding: 8px;
+    margin: -8px 4px !important;
+    padding: 4px;
   }
 }
 
@@ -773,16 +773,20 @@ select {
 }
 
 .carousel-caption {
+  left: 0%;
+  right: 0%;
+  text-align: center;
+  background: #25AF61;
+  opacity: 0.9;
   a {
-    text-shadow: #fff 0 0 20px;
-    font-size: 1.2em;
+    color: #fff;
+    font-size: 1.5em;
     font-weight: bold;
   }
 
   a:hover, a:focus, a:active {
-    color: #fff;
     text-decoration: none;
-    text-shadow: #000 0 0 20px !important;
+    text-shadow: #fff 0 0 20px !important;
   }
 }
 
