@@ -9,21 +9,8 @@
 * グエン・バオ・ゴック　20122160
 
 # データベースを設定する
-    # 1st terminal
     $ rails db:migrate:reset
     $ rails db:seed
-    $ redis-cli
-        > flushdb
-        > exit
-
-    # 2nd terminal
-    $ redis-server
-
-    # 1st terminal again
-    $ bundle exec rake search_suggestions:index
 
 # サーバーを起動する
-    # Each in a different terminal
-    $ redis-server
-    $ bundle exec sidekiq
     $ rails server
