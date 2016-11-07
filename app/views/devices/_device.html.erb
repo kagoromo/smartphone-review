@@ -1,6 +1,15 @@
-<div class="row review-list">
-  <div class="center">
-    <h3><%= link_to device.name, device %></h3>
+<div class="media review-list">
+  <div class="media-left col-md-4">
+    <%= link_to image_tag(device.image.url(:thumb), title: device.name,
+      alt_text: device.name, class: "media-object"), device_path(device) %>
   </div>
-  <p><%= device.content.html_safe %></p>
+  <div class="media-body">
+    <h3 class="media-heading">
+      <%= link_to device.name.html_safe.truncate(100, separator: " "),
+        device_path(device) %>
+    </h3>
+    <div class="quote">
+      <%= device.created_at.strftime("%d/%m/%Y") %>
+    </div>
+  </div>
 </div>

@@ -20,9 +20,13 @@ User.create!(
     password_confirmation: password)
 end
 
-10.times do |i|
-  Device.create name: "iPhone #{i}", content: Faker::Lorem.sentence
-end
+Device.create name: "Xiaomi Mi Mix", content: "", screen: "6.4 inch",
+  chipset: "Qualcomm MSM8996 Snapdragon 821",
+  CPU: "4 nhân (2x2.35 GHz Kryo & 2x1.6 GHz Kryo)", GPU: "Adreno 530",
+  RAM: "4/6GB", OS: "Android", main_camera: "16 MP, f/2.0, chống rung điện tử",
+  sub_camera: "5 MP, f/2.0", internal_memory: "128/256GB", external_memory: "Không hỗ trợ",
+  battery: "Không hỗ trợ"
+
 
 Review.create!(
   user_id: User.first.id,

@@ -1,7 +1,6 @@
 <tr>
   <td><%= device.created_at.strftime("%d/%m/%Y %H:%M %Z") %></td>
   <td><%= link_to device.name, [:admins, device] %></td>
-  <td><%= device.content.html_safe %></td>
   <td>
     <%= link_to "Edit", edit_admins_device_path(device),
       class: "btn btn-success col-md-5 col-md-offset-1" %>

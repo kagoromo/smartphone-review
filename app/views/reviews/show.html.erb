@@ -11,13 +11,19 @@
               <%= @review.user.name %> - <%= @review.created_at.strftime("%d/%m/%Y %H:%M %Z") %></span>
             </div>
             <div class="quote"><%= @review.summary %></div>
-            <%= render "compares" %>
+            <% if @review.the_good.present? && @review.the_bad.present? %>
+              <%= render "compares" %>
+            <% end %>
             <div class="content review-body"><%= @review.content.html_safe %></div>
             <div class="author">
               <span class="glyphicon glyphicon-user" aria-hidden="true"><%= @review.user.name %></span>
 
             </div>
-            <%= render "scores" %>
+            <% if (@review.score_design != 1) && (@review.score_screen != 1) &&
+              (@review.score_performance != 1) && (@review.score_battery != 1) &&
+              (@review.score_camera != 1) %>
+              <%= render "scores" %>
+            <% end %>
           </div>
 
           <hr>
