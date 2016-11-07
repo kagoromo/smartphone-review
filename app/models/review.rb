@@ -13,13 +13,11 @@ class Review < ApplicationRecord
   validates :content, presence: true
   validates :device_id, presence: true
   validates :summary, presence: true
-  validates :the_good, presence: true
-  validates :the_bad, presence: true
-  validates :score_design, presence: true, inclusion: 1..10
-  validates :score_screen, presence: true, inclusion: 1..10
-  validates :score_performance, presence: true, inclusion: 1..10
-  validates :score_battery, presence: true, inclusion: 1..10
-  validates :score_camera, presence: true, inclusion: 1..10
+  validates :score_design, inclusion: 1..10
+  validates :score_screen, inclusion: 1..10
+  validates :score_performance, inclusion: 1..10
+  validates :score_battery, inclusion: 1..10
+  validates :score_camera, inclusion: 1..10
 
   validates_attachment :cover_image,
     content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }

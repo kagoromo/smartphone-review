@@ -57,9 +57,11 @@ class Admins::DevicesController < ApplicationController
   end
 
   def device_params
-    params.require(:device).permit :name, :content
+    params.require(:device).permit :name, :content, :image, :screen, :chipset,
+      :CPU, :GPU, :RAM, :OS, :main_camera, :sub_camera, :internal_memory,
+      :external_memory, :battery
   end
-  
+
   def sort_column
     Review.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end

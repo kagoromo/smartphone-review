@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021103215) do
+ActiveRecord::Schema.define(version: 20161106144044) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -41,8 +41,23 @@ ActiveRecord::Schema.define(version: 20161021103215) do
   create_table "devices", force: :cascade do |t|
     t.string   "name"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "screen"
+    t.string   "chipset"
+    t.string   "CPU"
+    t.string   "GPU"
+    t.string   "RAM"
+    t.string   "OS"
+    t.string   "main_camera"
+    t.string   "sub_camera"
+    t.string   "internal_memory"
+    t.string   "external_memory"
+    t.string   "battery"
   end
 
   create_table "impressions", force: :cascade do |t|
@@ -92,6 +107,10 @@ ActiveRecord::Schema.define(version: 20161021103215) do
     t.integer  "score_battery"
     t.integer  "score_camera"
     t.integer  "status",                   default: 0
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["device_id"], name: "index_reviews_on_device_id"
   end
 

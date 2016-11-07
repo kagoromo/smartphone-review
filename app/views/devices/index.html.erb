@@ -2,17 +2,31 @@
 
 <div class="row">
   <div class="col-md-12">
-    <div class="row center">
-      <h1>Devices</h1>
-    </div>
-    <%= render "search_form" %>
-    <div class="scrolltop-anchor"></div>
-    <div class="row" id="devices">
-      <%= render @devices %>
-    </div>
+    <div class="container">
+      <div class="row center">
+        <h1>Devices</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="scrolltop-anchor"></div>
 
-    <div class="row center">
-      <%= paginate @devices, window: 3, remote: true %>
-    </div>
+          <div class="row" id="devices">
+            <%= render @devices %>
+          </div>
+
+          <div class="row center">
+            <%= paginate @devices, window: 3, remote: true %>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div id="sidebar">
+            <%= render "search_form" %>
+            <div class="hot-review">
+              <h3 class="center">Hot Reviews of the Month</h3>
+              <%= render partial: "reviews/hot_review", collection: @hot_reviews %>
+            </div>
+          </div>
+        </div>
   </div>
 </div>

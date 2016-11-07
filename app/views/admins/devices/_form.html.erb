@@ -1,25 +1,99 @@
-<%= form_for [:admins, device] do |f| %>
-  <% if device.errors.any? %>
+<%= form_for [:admins, @device], html: { multipart: true } do |f| %>
+  <% if @device.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(device.errors.count, "error") %> prohibited this device from being saved:</h2>
+      <h2><%= pluralize(@device.errors.count, "error") %> prohibited this review from being saved:</h2>
 
       <ul>
-        <% device.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+        <% @device.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>Name</b></span>
+    <%= f.text_area :name, autofocus: true, class: "form-control" %>
   </div>
+  <br>
 
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.cktext_area :content, rows: 10, class: "ckeditor" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>Image</b></span>
+    <%= f.file_field :image, class: 'form-control'%>
   </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>Screen</b></span>
+    <%= f.text_area :screen, autofocus: true, class: "form-control" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>Chipset</b></span>
+    <%= f.text_area :chipset, autofocus: true, class: "form-control" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>CPU</b></span>
+    <%= f.text_area :CPU, autofocus: true, class: "form-control" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>GPU</b></span>
+    <%= f.text_area :GPU, autofocus: true, class: "form-control" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>RAM</b></span>
+    <%= f.text_area :RAM, autofocus: true, class: "form-control" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>Operation System</b></span>
+    <%= f.text_area :OS, autofocus: true, class: "form-control" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>Main Camera</b></span>
+    <%= f.text_area :main_camera, autofocus: true, class: "form-control" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>Sub Camera</b></span>
+    <%= f.text_area :sub_camera, autofocus: true, class: "form-control" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>Internal Memory</b></span>
+    <%= f.text_area :internal_memory, autofocus: true, class: "form-control" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>External Memory</b></span>
+    <%= f.text_area :external_memory, autofocus: true, class: "form-control" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>Battery</b></span>
+    <%= f.text_area :battery, autofocus: true, class: "form-control" %>
+  </div>
+  <br>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2"><b>Other</b></span>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <br>
 
   <div>
     <%= f.submit class: "btn btn-primary" %>
@@ -27,7 +101,6 @@
 
   <br>
   <div class="center">
-    <%= link_to "Back to All Devices", admins_devices_path,
-      class: "btn btn-default" %>
+    <%= link_to "Back to All Devices", admins_reviews_path, class: "btn btn-default" %>
   </div>
 <% end %>

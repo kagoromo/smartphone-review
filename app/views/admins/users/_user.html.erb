@@ -1,7 +1,7 @@
 <tr>
   <td><%= user.created_at.strftime("%d/%m/%Y %H:%M %Z") %></td>
-  <td><%= link_to user.name, [:admins, user] %></td>
-  <td><%= link_to user.email, [:admins, user] %></td>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
   <% unless current_user == user %>
     <td>
       <%= link_to "Edit", edit_admins_user_path(user),
