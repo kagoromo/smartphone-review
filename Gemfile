@@ -23,6 +23,7 @@ gem "htmlentities"
 gem "redis"
 gem "sidekiq"
 gem "sidekiq-throttled"
+gem "acts-as-taggable-on", "~> 4.0"
 
 group :development, :test do
   gem "byebug", platform: :mri

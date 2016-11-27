@@ -32,6 +32,16 @@
   <br>
 
   <div class="input-group">
+    <span class="input-group-addon" id="sizing-addon2">
+      <b>Tags</b>
+    </span>
+    <%= f.text_field :tag_list, class: "form-control", placeholder: "Separated by comma",
+      data: {autocomplete_source: @review.tag_list, delimiter: ", "},
+      value: @review.tag_list.join(", ") %>
+  </div>
+  <br>
+
+  <div class="input-group">
     <span class="input-group-addon" id="sizing-addon2"><b>Summary</b></span>
     <%= f.text_area :summary, class: "form-control" %>
   </div>

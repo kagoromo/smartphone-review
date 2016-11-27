@@ -82,3 +82,30 @@ $.ui.autocomplete.prototype._renderItem = function (ul, item) {
   return $("<li></li>").data("item.autocomplete", item).
     append("<a>" + item.label + "</a>").appendTo(ul);
 };
+
+$(document).on('turbolinks:load', function() {
+  function split( val ) {
+    return val.split( /,\s*/ );
+  }
+  function extractLast( term ) {
+    return split( term ).pop();
+  }
+
+  $('#review_tag_list').autocomplete ({
+    source: function( request, response ) {
+      response( $.ui.autocomplete.filter(
+        $('#review_tag_list').data('autocomplete-source'), extractLast( request.term ) ) );
+    },
+    focus: function() {
+      return false;
+    },
+    select: function( event, ui ) {
+      var terms = split( this.value );
+      terms.pop();
+      terms.push( ui.item.value );
+      terms.push( "" );
+      this.value = terms.join( ", " );
+      return false;
+    }
+  })
+});
