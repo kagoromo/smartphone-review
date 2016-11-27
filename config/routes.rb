@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:index, :create, :destroy]
   resources :devices, only: [:index, :show]
   resources :reviews
+  get "tags/:tag", to: "reviews#index", as: :tag
   resources :search_suggestions
   devise_for :users, controllers: {
     omniauth_callbacks: "users/callbacks"

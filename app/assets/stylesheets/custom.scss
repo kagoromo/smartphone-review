@@ -865,3 +865,37 @@ select {
 .ui-autocomplete-highlight {
   font-weight: bold;
 }
+
+.tags {
+  padding: 10px;
+  font-size: 1.1em;
+
+  span {
+    float: left;
+    line-height: 1.9;
+  }
+
+  ul {
+    list-style: outside none none;
+    li {
+      a {
+        background: #FFF none repeat scroll 0% 0%;
+        border: 1px solid #EBEBEB;
+        border-radius: 15px;
+        padding: 5px 10px;
+        color: #333;
+        display: block;
+        float: left;
+        margin-left: 10px;
+     }
+
+      a:hover {
+        background: #25AF61 none repeat scroll 0% 0%;
+        color: #FFF;
+        border-color: #25AF61;
+      }
+    }
+  }
+  a {
+  }
+}
