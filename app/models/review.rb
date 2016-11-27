@@ -28,4 +28,6 @@ class Review < ApplicationRecord
   enum status: [:pending, :approved, :rejected]
 
   scope :with_in_30_days, ->{ where('created_at > ?', 30.days.ago) }
+
+  acts_as_taggable
 end

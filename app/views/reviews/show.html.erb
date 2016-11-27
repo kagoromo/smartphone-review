@@ -26,6 +26,17 @@
             <% end %>
           </div>
 
+          <div class="row review-content tags">
+            <span class="glyphicon glyphicon-tag">Tags:</span>
+            <ul>
+              <% @review.tag_list.each do |tag| %>
+                <li>
+                  <%= link_to tag, tag_path(tag) %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+
           <hr>
           <div class="row">
             <div class="comment-title">

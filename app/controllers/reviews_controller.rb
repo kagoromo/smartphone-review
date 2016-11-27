@@ -4,7 +4,11 @@ class ReviewsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @search = Review.approved.search(params[:q])
+    if params[:tag]
+      @search = Review.tagged_with(params[:tag]).approved.search(params[:q])
+    else
+      @search = Review.approved.search(params[:q])
+    end
     @reviews = @search.result.order(sort_column + " " + sort_direction).
       page(params[:page]).per 10
     @hot_reviews = Review.approved.with_in_30_days.
@@ -66,7 +70,7 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit :title, :content, :device_id, :cover_image,
       :summary, :the_good, :the_bad, :score_design, :score_screen,
-      :score_performance, :score_battery, :score_camera
+      :score_performance, :score_battery, :score_camera, :tag_list
   end
 
   def correct_user
