@@ -11,7 +11,15 @@
     <p><%= review.summary.html_safe.truncate(230, separator: " ") %></p>
     <div class="row">
       <div class="col-md-6">
-        <span class="glyphicon glyphicon-phone"></span> <%= link_to review.device.name, device_path(review.device) %>
+        <span class="glyphicon glyphicon-phone"></span>
+          <%= link_to review.device.name, device_path(review.device) %>
+          <% if review.tag_list.any? %>
+            <span class="glyphicon glyphicon-tag"></span>
+            <% review.tag_list.each do |tag| %>
+              <%= link_to tag, tag_path(tag) %>
+            <% end %>
+          <% end %>
+        </span>
       </div>
       <div class="col-md-6" style="text-align: right">
         <span class="glyphicon glyphicon-eye-open"></span> <%= review.
