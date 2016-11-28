@@ -10,7 +10,7 @@
     </h3>
     <p><%= review.summary.html_safe.truncate(230, separator: " ") %></p>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-9">
         <span class="glyphicon glyphicon-phone"></span>
           <%= link_to review.device.name, device_path(review.device) %>
           <% if review.tag_list.any? %>
@@ -21,7 +21,7 @@
           <% end %>
         </span>
       </div>
-      <div class="col-md-6" style="text-align: right">
+      <div class="col-md-3" style="text-align: right">
         <span class="glyphicon glyphicon-eye-open"></span> <%= review.
           impressionist_count filter: :session_hash %>
       </div>

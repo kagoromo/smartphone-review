@@ -43,6 +43,15 @@
               <h3 class="center">Hot Reviews of the Month</h3>
               <%= render partial: "hot_review", collection: @hot_reviews %>
             </div>
+            <br>
+
+            <h3 class="center">Tags Cloud</h3>
+            <div id="tag_cloud">
+              <% tag_cloud Review.tag_counts, %w{s m l} do |tag, css_class| %>
+                <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+              <% end %>
+            </div>
+
           </div>
         </div>
       </div>

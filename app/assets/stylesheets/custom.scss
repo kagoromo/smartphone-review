@@ -899,3 +899,28 @@ select {
   a {
   }
 }
+
+#tag_cloud {
+  line-height: 1.6em;
+  .s { font-size: 0.7em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 2em; }
+
+  a {
+    background: #FFF none repeat scroll 0% 0%;
+    border: 1px solid #EBEBEB;
+    border-radius: 15px;
+    padding: 5px 10px;
+    color: #333;
+    display: block;
+    float: left;
+    margin-left: 3px;
+    margin-top: 3px;
+  }
+
+  a:hover {
+    background: #25AF61 none repeat scroll 0% 0%;
+    color: #FFF;
+    border-color: #25AF61;
+  }
+}
